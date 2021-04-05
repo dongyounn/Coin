@@ -1,0 +1,17 @@
+server:
+  port: 10130
+  servlet:
+    context-path: /coin
+
+management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: shutdown, health
+      base-path: /
