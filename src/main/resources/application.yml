@@ -2,6 +2,9 @@ server:
   port: 10130
   servlet:
     context-path: /coin
+  undertow:
+    io-threads: 32
+    worker-threads: 256
 
 management:
   endpoint:

@@ -19,6 +19,10 @@ repositories {
     mavenCentral()
 }
 
+configurations.forEach {
+    it.exclude("org.springframework.boot", "spring-boot-starter-tomcat")
+}
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
