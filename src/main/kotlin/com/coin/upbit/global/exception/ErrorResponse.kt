@@ -18,7 +18,7 @@ enum class ErrorReason(
     private val reason: String
 ) {
     INVALID_INPUT_DATA("0001", "001"),
-
+    INVALID_DATA("0001", "002"),
     ;
 
     fun toReason() = "${COMPONENT_ID}_${feature}_${reason}"
