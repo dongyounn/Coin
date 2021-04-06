@@ -1,0 +1,24 @@
+server:
+  port: 10130
+  servlet:
+    context-path: /coin
+  undertow:
+    io-threads: 32
+    worker-threads: 256
+
+management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: shutdown, health
+      base-path: /
+
+info.git.buildDate: 2021-04-05 22\:52\:36
+info.git.hash: 1fb49c9
+info.version: 1.1.4
