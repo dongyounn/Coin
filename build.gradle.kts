@@ -35,6 +35,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-undertow")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("ojdbc7-12.1.0.2.jar"))))
+
 
     implementation("io.springfox", "springfox-swagger2", "2.9.2")
     implementation("io.springfox", "springfox-swagger-ui", "2.9.2")
