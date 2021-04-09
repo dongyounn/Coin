@@ -14,8 +14,8 @@ class ApiGateway(
         return restTemplate.postForObject(url, request, responseType, *uriVariables)
     }
 
-    fun <T> get(url: String?, responseType: Class<T>?, vararg urlVariables: Any): T? {
-        return restTemplate.getForObject(url!!, responseType!!, *urlVariables)
+    fun <T> get(url: String, responseType: Class<T>?, vararg urlVariables: Any): T? {
+        return restTemplate.getForObject(url, responseType!!, *urlVariables)
     }
 
     fun <T> get(url: URI, responseType: Class<T>): T? {

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 class UpbitService(
         private val upbitApi: UpbitApi
 ) {
-    fun getCoinInfos(): Array<CoinInfo> {
+    fun getCoinInfos(): CoinInfo {
         return upbitApi.getCoinInfo()
     }
 }
