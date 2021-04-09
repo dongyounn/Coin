@@ -31,7 +31,7 @@ class UpbitApi(
                         .queryParam("market", market)
                         .build()
                         .toString(),
-                Array<RecentTradeInfo>::class.java
+        Array<RecentTradeInfo>::class.java
         )?.first() ?: throw BadRequestException(ErrorReason.INVALID_DATA, "데이터 없음")
     }
 }

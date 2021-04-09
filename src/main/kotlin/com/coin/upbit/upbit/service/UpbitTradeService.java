@@ -2,7 +2,6 @@ package com.coin.upbit.upbit.service;
 
 import com.coin.upbit.global.exception.BadRequestException;
 import com.coin.upbit.global.exception.ErrorReason;
-import com.coin.upbit.global.exception.ExternalServiceException;
 import com.coin.upbit.global.message.upbit.UpbitApi;
 import com.coin.upbit.upbit.controller.dto.RecentTradeInfo;
 import com.coin.upbit.upbit.domain.ResultEnum;
@@ -25,8 +24,9 @@ public class UpbitTradeService {
     public RecentTradeInfo getRecentTradeInfo(String market) {
         UpbitApiCallHistory upbitApiCallHistory = UpbitApiCallHistory.of("getRecentTradeInfo", ResultEnum.FAIL);
         RecentTradeInfo result;
+        result = upbitApi.getRecentTradeInfo(new StringBuilder("KRW-").append(market).toString());
+
         try {
-            result = upbitApi.getRecentTradeInfo(new StringBuilder("KRW-").append(market).toString());
             upbitApiCallHistory.setStatusSuccess();
         } catch (Exception e) {
             throw new BadRequestException(ErrorReason.INVALID_DATA, "에러 발생");

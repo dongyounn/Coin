@@ -1,7 +1,5 @@
 package com.coin.upbit.upbit.domain;
 
-import com.coin.upbit.global.domain.BaseDomain;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
