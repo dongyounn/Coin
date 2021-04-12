@@ -5,6 +5,7 @@ import com.coin.upbit.upbit.controller.dto.RecentTradeInfo;
 import com.coin.upbit.upbit.service.UpbitService;
 import com.coin.upbit.upbit.service.UpbitTradeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,5 +32,10 @@ public class UpbitController {
             @RequestParam String market
     ) {
         return upbitTradeService.getRecentTradeInfo(market);
+    }
+
+    @GetMapping("/myasset")
+    public ResponseEntity<String> getMyAsset() {
+        return upbitService.getMyAsset();
     }
 }
