@@ -10,6 +10,7 @@ import com.coin.upbit.upbit.infra.repository.UpbitApiCallRepository
 import org.springframework.stereotype.Service
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.coin.upbit.global.message.upbit.MyAsset
 import org.springframework.http.ResponseEntity
 import java.util.*
 
@@ -30,7 +31,7 @@ class UpbitService(
         }
     }
 
-    fun getMyAsset(): ResponseEntity<String> {
+    fun getMyAsset(): List<MyAsset> {
         val accessKey = "accessKey"
         val secretKey = "secretKey"
 
@@ -42,6 +43,6 @@ class UpbitService(
 
         val authenticationToken = "Bearer $jwtToken"
 
-        return upbitApi.getMyAsset(authenticationToken)
+        return upbitApi.getMyAsset(authenticationToken).filter { it.balance.toBigDecimal() > 0.05.toBigDecimal() }
     }
 }
