@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Component
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.util.UriComponentsBuilder
+import javax.persistence.Enumerated
 
 
 data class CoinInfo(
@@ -31,6 +32,36 @@ data class MyAsset(
         val avgBuyPrice: String,
         @JsonAlias("unit_currency")
         val unitCurrency: String
+)
+
+/*
+* bid : 매수
+* ask : 매도
+* */
+enum class OrderType{
+    bid, ask
+}
+
+/*
+* limit 매수/매도 지정가
+* price 시장가 매수
+* market 시장가 매도
+* */
+enum class PaymentType{
+    limit, price, market
+}
+
+data class OrderCoin(
+        @JsonAlias("market")
+        val market: String,
+        @JsonAlias("side")
+        val side: OrderType,
+        @JsonAlias("volume")
+        val volume: String,
+        @JsonAlias("price")
+        val price: String,
+        @JsonAlias("order_type")
+        val orderType: PaymentType
 )
 
 @Component

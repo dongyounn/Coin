@@ -35,11 +35,10 @@ class UpbitService(
         val accessKey = "accessKey"
         val secretKey = "secretKey"
 
-        val algorithm: Algorithm = Algorithm.HMAC256(secretKey)
         val jwtToken: String = JWT.create()
                 .withClaim("access_key", accessKey)
                 .withClaim("nonce", UUID.randomUUID().toString())
-                .sign(algorithm)
+                .sign(Algorithm.HMAC256(secretKey))
 
         val authenticationToken = "Bearer $jwtToken"
 
