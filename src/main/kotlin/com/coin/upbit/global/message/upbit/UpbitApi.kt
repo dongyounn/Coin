@@ -38,7 +38,7 @@ data class MyAsset(
 * bid : 매수
 * ask : 매도
 * */
-enum class OrderType{
+enum class OrderType {
     bid, ask
 }
 
@@ -47,7 +47,7 @@ enum class OrderType{
 * price 시장가 매수
 * market 시장가 매도
 * */
-enum class PaymentType{
+enum class PaymentType {
     limit, price, market
 }
 
@@ -71,8 +71,8 @@ class UpbitApi(
 ) {
     private val baseUrl = "https://api.upbit.com/v1"
 
-    fun getCoinInfo(): CoinInfo {
-        return apiGateway.get("$baseUrl/market/all?isDetails=false", Array<CoinInfo>::class.java)?.first()
+    fun getCoinInfo(): Array<CoinInfo> {
+        return apiGateway.get("$baseUrl/market/all?isDetails=false", Array<CoinInfo>::class.java)
                 ?: throw BadRequestException(ErrorReason.INVALID_DATA, "데이터 없음")
     }
 

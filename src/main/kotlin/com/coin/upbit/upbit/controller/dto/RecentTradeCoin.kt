@@ -1,11 +1,19 @@
 package com.coin.upbit.upbit.controller.dto
 
+import com.fasterxml.jackson.annotation.JsonAlias
+
 
 data class RecentTradeInfo(
+        @JsonAlias("market")
         val market: String?,
-        val trade_time_utc: String?,
-        val trade_price: Double?,
-        val trade_volume: Double?,
-        val prev_closing_price: Double?,
-        val change_price: Double?
+        @JsonAlias("trade_time_utc")
+        val tradeTimeUtc: String?,
+        @JsonAlias("trade_price")
+        val tradePrice: Double?,
+        @JsonAlias("trade_volume")
+        val tradeVolume: Double?,
+        @JsonAlias("prev_closing_price")
+        val prevClosingPrice: Double?,
+        @JsonAlias("change_price")
+        val changePrice: Double?
 )
