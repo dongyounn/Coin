@@ -13,8 +13,8 @@ class UpbitService(
         private val upbitApi: UpbitApi
 ) {
     fun getMyAsset(): List<MyAsset> {
-        val accessKey = "2oxejxICVBr0NmDtHxM1oxbxiWecYchKgi0WYxZd"
-        val secretKey = "wBG71NL1eNVAK3wtgfhiKKPgmHzvRx3UQb0aPcUx"
+        val accessKey = "accessKey"
+        val secretKey = "secretKey"
 
         val jwtToken: String = JWT.create()
                 .withClaim("access_key", accessKey)
