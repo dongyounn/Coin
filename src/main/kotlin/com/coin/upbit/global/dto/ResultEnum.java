@@ -1,4 +1,4 @@
-package com.coin.upbit.upbit.domain;
+package com.coin.upbit.global.dto;
 
 public enum ResultEnum {
     SUCCESS, FAIL

@@ -1,5 +1,8 @@
 package com.coin.upbit.upbit.domain;
 
+import com.coin.upbit.global.dto.BaseDomain;
+import com.coin.upbit.global.dto.ResultEnum;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -11,7 +14,7 @@ public class UpbitApiCallHistory extends BaseDomain {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "payCostIdGenerator")
     @SequenceGenerator(name = "payCostIdGenerator", sequenceName = "PAY_COST_ID_SEQ", allocationSize = 1)
     @Column(name = "ID",columnDefinition = "NUMBER")
-    private Long Id;
+    private Long id;
     @Column(name = "REQUEST_DATE",columnDefinition = "VARCHAR2(10)")
     private String requestDate;
     @Column(name = "METHOD",columnDefinition = "VARCHAR2(50)")
@@ -53,9 +56,7 @@ public class UpbitApiCallHistory extends BaseDomain {
         return method;
     }
 
-
     public ResultEnum getResult() {
         return result;
     }
-
 }

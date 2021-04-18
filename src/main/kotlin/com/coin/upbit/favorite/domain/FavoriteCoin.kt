@@ -1,11 +1,12 @@
-package com.coin.upbit.upbit.domain
+package com.coin.upbit.favorite.domain
 
 import com.coin.upbit.global.message.upbit.CoinInfo
+import com.coin.upbit.global.dto.BaseDomain
 import javax.persistence.*
 
 @Entity
 @Table(name = "MY_FAVORITE_COIN")
-data class MyFavoriteCoin(
+data class FavoriteCoin(
         @Id
         @Column(name = "COIN_SYMBOL", columnDefinition = "VARCHAR2(20)")
         val coinSymbol: String,
@@ -14,15 +15,14 @@ data class MyFavoriteCoin(
         @Enumerated(EnumType.STRING)
         @Column(name = "STATUS", columnDefinition = "VARCHAR2(20)")
         val status: RegStatusEnum,
-) : BaseDomain(){
-    companion object{
+) : BaseDomain() {
+    companion object {
         fun of(
-                request: CoinInfo
-        ) = MyFavoriteCoin(request.market, request.korean_name, RegStatusEnum.REGISTRY)
-
+                request: CoinInfo,
+                status: RegStatusEnum
+        ) = FavoriteCoin(request.market, request.korean_name, status)
     }
 }
-
 
 enum class RegStatusEnum {
     REGISTRY, DELETE, ALL

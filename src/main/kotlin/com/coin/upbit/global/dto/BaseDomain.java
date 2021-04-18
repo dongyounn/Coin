@@ -1,4 +1,4 @@
-package com.coin.upbit.upbit.domain;
+package com.coin.upbit.global.dto;
 
 import com.sun.istack.NotNull;
 import kotlin.jvm.internal.Intrinsics;
