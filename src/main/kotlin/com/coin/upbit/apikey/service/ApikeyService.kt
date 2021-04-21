@@ -1,5 +1,7 @@
 package com.coin.upbit.apikey.service
 
+import com.auth0.jwt.JWT.*
+import com.auth0.jwt.algorithms.Algorithm.*
 import com.coin.upbit.apikey.domain.Apikey
 import com.coin.upbit.apikey.domain.ApikeyRegistryReq
 import com.coin.upbit.apikey.infra.repository.ApikeyRepository
@@ -30,4 +32,12 @@ class ApikeyService(
                 else apikeyList.filter { apikey -> apikey.status == status }
             }
 
+    fun currentApikey(): String {
+        return "Bearer ${apikeyRepository.findByApiId(1L).let {
+            create()
+                    .withClaim("access_key", it.privateKey)
+                    .withClaim("nonce", java.util.UUID.randomUUID().toString())
+                    .sign(HMAC256(it.secretKey))
+        }}"
+    }
 }
