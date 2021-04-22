@@ -26,4 +26,11 @@ class CoinInfoController(
     ): List<RecentTradeInfo> {
         return coinInfoService.getFavoriteCoinRecentTradeInfos()
     }
+
+    @GetMapping("/favorite/coin/recent/trade/infos")
+    fun getCoinInfos(
+            @RequestParam req: List<String>
+    ): RecentTradeInfo {
+        return coinInfoService.getCurrentCoinInfos(req)
+    }
 }

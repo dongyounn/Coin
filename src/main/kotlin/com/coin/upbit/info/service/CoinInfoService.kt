@@ -21,6 +21,7 @@ class CoinInfoService(
 
     fun getRecentTradeInfo(market: String): RecentTradeInfo = upbitApi.getRecentTradeInfo(StringBuilder("KRW-").append(market).toString())
 
+    fun getCurrentCoinInfos(markets: List<String>) = upbitApi.getCurrentPriceInfos(markets)
     fun getFavoriteCoinRecentTradeInfos(): List<RecentTradeInfo> =
             favoriteCoinRepository.findByStatus(RegStatusEnum.REGISTRY)?.let { coins ->
                 coins.map {

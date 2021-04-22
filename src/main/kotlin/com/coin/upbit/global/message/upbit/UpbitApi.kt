@@ -87,6 +87,17 @@ class UpbitApi(
         )?.first() ?: throw BadRequestException(ErrorReason.INVALID_DATA, "데이터 없음")
     }
 
+    fun getCurrentPriceInfos(market: List<String>): RecentTradeInfo {
+        return apiGateway.get(
+                UriComponentsBuilder
+                        .fromHttpUrl("$baseUrl/ticker")
+                        .queryParam("market", market.joinToString { "," })
+                        .build()
+                        .toString(),
+                Array<RecentTradeInfo>::class.java
+        )?.first() ?: throw BadRequestException(ErrorReason.INVALID_DATA, "데이터 없음")
+    }
+
     fun getMyAsset(authenticationToken: String): Array<MyAsset> {
         val header = HttpHeaders()
         header.add("Content-Type", "application/json")
