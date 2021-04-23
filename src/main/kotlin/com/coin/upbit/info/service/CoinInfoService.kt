@@ -7,9 +7,7 @@ import com.coin.upbit.global.exception.ErrorReason
 import com.coin.upbit.global.message.upbit.CoinInfo
 import com.coin.upbit.global.message.upbit.UpbitApi
 import com.coin.upbit.upbit.controller.dto.RecentTradeInfo
-import com.coin.upbit.upbit.infra.repository.UpbitApiCallRepository
 import org.springframework.stereotype.Service
-import javax.transaction.Transactional
 
 
 @Service
